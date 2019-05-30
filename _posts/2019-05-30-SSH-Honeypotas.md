@@ -73,7 +73,7 @@ published: true
 					var maxResults = 50;
 					for(var k in list) {
 						if(k.startsWith(textbox.value)) {
-							var result;
+							var result = "";
 							if(list[k] != null && typeof list[k] != 'object') {
 								result = list[k];
 							}
