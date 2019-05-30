@@ -30,7 +30,7 @@ published: true
 		</div>
 
 		<input type="text" id="textbox">
-		<table id="table" border="1"></table>
+		<table style="word-wrap:break-word; width:100%;" id="table" border="1"></table>
 
 		<script>
 			var PopUserpass, PopUsername, PopPassword, Commands, IpWordlist;
@@ -59,14 +59,18 @@ published: true
 				while (table.firstChild) {
 					table.removeChild(table.firstChild);
 				}
-				if(textbox.value!="") {
+				if(textbox.value != "") {
 					var maxResults = 50;
 					for(var k in list) {
 						if(k.startsWith(textbox.value)) {
-							var tr = document.createElement('tr');   
+							var tr = document.createElement('tr');
+							tr.setAttribute("style", "word-wrap:break-word; max-width:300px;");
 
 							var td1 = document.createElement('td');
+							td1.setAttribute("style", "word-wrap:break-word; max-width:300px;");
+
 							var td2 = document.createElement('td');
+							td2.setAttribute("style", "word-wrap:break-word; max-width:300px;");
 
 							var text1 = document.createTextNode(k);
 							var text2 = document.createTextNode(list[k]);
