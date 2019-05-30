@@ -4,10 +4,12 @@ published: true
 ---
 <html>
 	<body>
+		<br>
 		<button class="tablink" onclick="openPage('UserPass', this)">UserPass</button>
 		<button class="tablink" onclick="openPage('Usernames', this)">Usernames</button>
 		<button class="tablink" onclick="openPage('Passwords', this)">Passwords</button>
 		<button class="tablink" onclick="openPage('Commands', this)">Commands</button>
+		<button class="tablink" onclick="openPage('IPWordlist', this)">IPWordlist</button>
 		
 		<div id="UserPass" class="tabcontent">
 			<h3>UserPass</h3>
@@ -28,6 +30,11 @@ published: true
 			<h3>Commands</h3>
 			<p>Commands used in botnets :</p> 
 		</div>
+
+		<div id="IPWordlist" class="tabcontent">
+				<h3>IP Wordlist</h3>
+				<p>Wordlist used by one bot :</p> 
+			</div>
 
 		<input type="text" id="textbox">
 		<table style="word-wrap:break-word; width:100%;" id="table" border="1"></table>
@@ -63,17 +70,29 @@ published: true
 					var maxResults = 50;
 					for(var k in list) {
 						if(k.startsWith(textbox.value)) {
+							var result;
+							if(typeof list[k] === 'string') {
+								result = list[k];
+							}
+							else {
+								for(var a in list[k]) {
+									result = (result + a + ":" + list[k][a] + "\n");
+									console.log()
+								}
+							}
+
+
 							var tr = document.createElement('tr');
 							tr.setAttribute("style", "word-wrap:break-word; max-width:300px;");
 
 							var td1 = document.createElement('td');
-							td1.setAttribute("style", "word-wrap:break-word; max-width:300px;");
+							td1.setAttribute("style", "word-wrap:break-word; max-width:300px; vertical-align:top");
 
 							var td2 = document.createElement('td');
-							td2.setAttribute("style", "word-wrap:break-word; max-width:300px;");
+							td2.setAttribute("style", "word-wrap:break-word; max-width:300px; white-space:pre-wrap;");
 
 							var text1 = document.createTextNode(k);
-							var text2 = document.createTextNode(list[k]);
+							var text2 = document.createTextNode(result);
 
 							td1.appendChild(text1);
 							td2.appendChild(text2);
@@ -159,6 +178,9 @@ published: true
 				}
 				else if(pageName=="Commands") {
 					OpenedTab = 3;
+				}
+				else if(pageName=="IPWordlist") {
+					OpenedTab = 4;
 				}
 				document.getElementById(pageName).style.display = "block";
 				document.getElementById('textbox').value = "";
