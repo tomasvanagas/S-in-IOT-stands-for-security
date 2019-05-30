@@ -3,65 +3,164 @@ title: SSH Honeypotas
 published: true
 ---
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<button class="tablink" onclick="openPage('UserPass', this)">UserPass</button>
+		<button class="tablink" onclick="openPage('Usernames', this)">Usernames</button>
+		<button class="tablink" onclick="openPage('Passwords', this)">Passwords</button>
+		<button class="tablink" onclick="openPage('Commands', this)">Commands</button>
+		
+		<div id="UserPass" class="tabcontent">
+			<h3>UserPass</h3>
+			<p>Usernames and passwords used in botnets :</p>
+		</div>
+		
+		<div id="Usernames" class="tabcontent">
+			<h3>Usernames</h3>
+			<p>Usernames used in botnets :</p>
+		</div>
+		
+		<div id="Passwords" class="tabcontent">
+			<h3>Passwords</h3>
+			<p>Passwords used in botnets :</p> 
+		</div>
+		
+		<div id="Commands" class="tabcontent">
+			<h3>Commands</h3>
+			<p>Commands used in botnets :</p> 
+		</div>
 
-<p>Iveskite SSH duomenis:</p>
-<input type="text" id="textbox">
-<table id="table"></table>
-<div>
+		<input type="text" id="textbox">
+		<table id="table" border="1"></table>
 
-</div>
-<script>
-	var PopPassword;
-	var textbox = document.getElementById("textbox");
-	var table = document.getElementById("table");
+		<script>
+			var PopUserpass, PopUsername, PopPassword, Commands, IpWordlist;
+			var OpenedTab;
+			var textbox = document.getElementById("textbox");
+			var table = document.getElementById("table");
 
-	function OnTextBoxChange() {
-		while (table.firstChild) {
-			table.removeChild(table.firstChild);
-		}
-		if(textbox.value!="") {
-			var maxResults = 50;
-			for(var k in PopPassword) {
-				if(k.startsWith(textbox.value)) {
-					var tr = document.createElement('tr');   
+			function OnTextBoxChange() {
+				var list;
+				if(OpenedTab == 0) {
+					list = PopUserpass;
+				}
+				else if(OpenedTab == 1) {
+					list = PopUsername;
+				}
+				else if(OpenedTab == 2) {
+					list = PopPassword;
+				}
+				else if(OpenedTab == 3) {
+					list = Commands;
+				}
+				else if(OpenedTab == 4) {
+					list = IpWordlist;
+				}
 
-					var td1 = document.createElement('td');
-					var td2 = document.createElement('td');
+				while (table.firstChild) {
+					table.removeChild(table.firstChild);
+				}
+				if(textbox.value!="") {
+					var maxResults = 50;
+					for(var k in list) {
+						if(k.startsWith(textbox.value)) {
+							var tr = document.createElement('tr');   
 
-					var text1 = document.createTextNode(k);
-					var text2 = document.createTextNode(PopPassword[k]);
+							var td1 = document.createElement('td');
+							var td2 = document.createElement('td');
 
-					td1.appendChild(text1);
-					td2.appendChild(text2);
-					
-					tr.appendChild(td1);
-					tr.appendChild(td2);
+							var text1 = document.createTextNode(k);
+							var text2 = document.createTextNode(list[k]);
 
-					table.appendChild(tr);
-					if(maxResults > 0){
-						maxResults--;
-					}
-					else{
-						break;
+							td1.appendChild(text1);
+							td2.appendChild(text2);
+							
+							tr.appendChild(td1);
+							tr.appendChild(td2);
+
+							table.appendChild(tr);
+							if(maxResults > 0){
+								maxResults--;
+							}
+							else{
+								break;
+							}
+						}
 					}
 				}
 			}
-		}
-		
-	}
 
-	function LoadJsonFiles() {
-		var xmlhttp = new XMLHttpRequest();
-		xmlhttp.onreadystatechange = function() {
-			if (this.readyState == 4 && this.status == 200) {
-				PopPassword = JSON.parse(this.responseText);
-			}		
-		};
-		xmlhttp.open("GET", "https://raw.githubusercontent.com/tomasvanagas/S-in-IOT-stands-for-security/master/cowrie/PopUserpass.json", true);
-		xmlhttp.send();
-	}
 
-	LoadJsonFiles();
-	document.getElementById("textbox").addEventListener('input', OnTextBoxChange);
-</script>
+			function LoadJsonFiles() {
+				var xmlhttp = new XMLHttpRequest();
+				xmlhttp.onreadystatechange = function() {
+					if (this.readyState == 4 && this.status == 200) {
+						PopUserpass = JSON.parse(this.responseText);
+					}		
+				};
+				xmlhttp.open("GET", "https://raw.githubusercontent.com/tomasvanagas/S-in-IOT-stands-for-security/master/cowrie/PopUserpass.json", true);
+				xmlhttp.send();
+
+				var xmlhttp1 = new XMLHttpRequest();
+				xmlhttp1.onreadystatechange = function() {
+					if (this.readyState == 4 && this.status == 200) {
+						PopUsername = JSON.parse(this.responseText);
+					}		
+				};
+				xmlhttp1.open("GET", "https://raw.githubusercontent.com/tomasvanagas/S-in-IOT-stands-for-security/master/cowrie/PopUsername.json", true);
+				xmlhttp1.send();    
+
+				var xmlhttp2 = new XMLHttpRequest();
+				xmlhttp2.onreadystatechange = function() {
+					if (this.readyState == 4 && this.status == 200) {
+						PopPassword = JSON.parse(this.responseText);
+					}		
+				};
+				xmlhttp2.open("GET", "https://raw.githubusercontent.com/tomasvanagas/S-in-IOT-stands-for-security/master/cowrie/PopPassword.json", true);
+				xmlhttp2.send();
+
+				var xmlhttp3 = new XMLHttpRequest();
+				xmlhttp3.onreadystatechange = function() {
+					if (this.readyState == 4 && this.status == 200) {
+						Commands = JSON.parse(this.responseText);
+					}		
+				};
+				xmlhttp3.open("GET", "https://raw.githubusercontent.com/tomasvanagas/S-in-IOT-stands-for-security/master/cowrie/Commands.json", true);
+				xmlhttp3.send();
+
+				var xmlhttp4 = new XMLHttpRequest();
+				xmlhttp4.onreadystatechange = function() {
+					if (this.readyState == 4 && this.status == 200) {
+						IpWordlist = JSON.parse(this.responseText);
+					}		
+				};
+				xmlhttp4.open("GET", "https://raw.githubusercontent.com/tomasvanagas/S-in-IOT-stands-for-security/master/cowrie/ipWordlist.json", true);
+				xmlhttp4.send();
+			}
+
+
+			function openPage(pageName, elmnt) {
+				var i, tabcontent, tablinks;
+				tabcontent = document.getElementsByClassName("tabcontent");
+				for (i = 0; i < tabcontent.length; i++) {
+					tabcontent[i].style.display = "none";
+				}
+				if(pageName=="UserPass") {
+					OpenedTab = 0;
+				}
+				else if(pageName=="Usernames") {
+					OpenedTab = 1;
+				}
+				else if(pageName=="Passwords") {
+					OpenedTab = 2;
+				}
+				else if(pageName=="Commands") {
+					OpenedTab = 3;
+				}
+				document.getElementById(pageName).style.display = "block";
+				document.getElementById('textbox').value = "";
+				OnTextBoxChange();
+			}
+			openPage('UserPass', this, 'red');
+
+			LoadJsonFiles();
+			document.getElementById("textbox").addEventListener('input', OnTextBoxChange);
+		</script>
