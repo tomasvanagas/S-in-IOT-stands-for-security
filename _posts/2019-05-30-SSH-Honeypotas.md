@@ -5,6 +5,8 @@ published: true
 <html>
 	<body>
 		<br>
+		<img src="https://coverfiles.alphacoders.com/885/8851.jpg">
+		<br>
 		<button class="tablink" onclick="openPage('UserPass', this)">UserPass</button>
 		<button class="tablink" onclick="openPage('Usernames', this)">Usernames</button>
 		<button class="tablink" onclick="openPage('Passwords', this)">Passwords</button>
@@ -72,13 +74,12 @@ published: true
 					for(var k in list) {
 						if(k.startsWith(textbox.value)) {
 							var result;
-							if(typeof list[k] === 'string') {
+							if(list[k] != null && typeof list[k] != 'object') {
 								result = list[k];
 							}
 							else {
 								for(var a in list[k]) {
 									result = (result + a + ":" + list[k][a] + "\n");
-									console.log()
 								}
 							}
 
@@ -112,7 +113,6 @@ published: true
 					}
 				}
 			}
-
 
 			function LoadJsonFiles() {
 				var xmlhttp = new XMLHttpRequest();
@@ -160,7 +160,6 @@ published: true
 				xmlhttp4.open("GET", "https://raw.githubusercontent.com/tomasvanagas/S-in-IOT-stands-for-security/master/cowrie/ipWordlist.json", true);
 				xmlhttp4.send();
 			}
-
 
 			function openPage(pageName, elmnt) {
 				var i, tabcontent, tablinks;
