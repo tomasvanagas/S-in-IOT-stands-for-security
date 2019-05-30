@@ -2,11 +2,10 @@
 title: Cowrie honeypot brute force and shell command summary
 published: true
 ---
-Cowrie is a medium interaction SSH and Telnet honeypot designed to log brute force attacks and the shell interaction performed by the attacker.
-
 <html style="min-height: 200%">
 	<body>
 		<br>
+		<p>Cowrie is a medium interaction SSH and Telnet honeypot designed to log brute force attacks and the shell interaction performed by the attacker.</p>
 		<img src="https://coverfiles.alphacoders.com/885/8851.jpg">
 		<br>
 		<button class="tablink" onclick="openPage('UserPass', this)">UserPass</button>
