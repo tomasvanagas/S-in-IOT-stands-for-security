@@ -5,9 +5,9 @@ description: Cowrie is a medium interaction SSH and Telnet honeypot designed to 
 ---
 <html style="min-height: 200%" border="2">
 	<body>
+		<img style="width: 50%; text-align: center; display: block;" src="https://coverfiles.alphacoders.com/885/8851.jpg">
 		<br>
 		<p>Cowrie is a medium interaction SSH and Telnet honeypot designed to log brute force attacks and the shell interaction performed by the attacker.</p>
-		<img src="https://coverfiles.alphacoders.com/885/8851.jpg">
 		<br>
 		<button class="tablink" onclick="openPage('UserPass', this)">UserPass</button>
 		<button class="tablink" onclick="openPage('Usernames', this)">Usernames</button>
