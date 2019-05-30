@@ -1,5 +1,5 @@
 ---
-title: SSH Honeypotas
+title: SSH Honeypot
 published: true
 ---
 <html>
@@ -79,7 +79,7 @@ published: true
 							}
 							else {
 								for(var a in list[k]) {
-									result = (result + a + ":" + list[k][a] + "\n");
+									result = (result + a + "   Count: " + list[k][a] + "\n");
 								}
 							}
 
