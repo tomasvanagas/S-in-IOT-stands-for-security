@@ -2,7 +2,6 @@
 title: SSH Honeypotas
 published: true
 ---
-<!DOCTYPE html>
 <html>
 	<body>
 		<button class="tablink" onclick="openPage('UserPass', this)">UserPass</button>
