@@ -2,7 +2,7 @@
 title: SSH Honeypot
 published: true
 ---
-<html>
+<html style="min-height: 200%">
 	<body>
 		<br>
 		<img src="https://coverfiles.alphacoders.com/885/8851.jpg">
