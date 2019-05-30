@@ -79,7 +79,7 @@ published: true
 							}
 							else {
 								for(var a in list[k]) {
-									result = ("Count: " + list[k][a] +  "	" + result + a + "\n");
+									result = (result + "Count: " + list[k][a] +  "	" + a + "\n");
 								}
 							}
 
