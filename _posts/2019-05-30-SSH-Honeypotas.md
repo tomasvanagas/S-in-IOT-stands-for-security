@@ -9,7 +9,7 @@ published: true
 		<button class="tablink" onclick="openPage('Usernames', this)">Usernames</button>
 		<button class="tablink" onclick="openPage('Passwords', this)">Passwords</button>
 		<button class="tablink" onclick="openPage('Commands', this)">Commands</button>
-		<button class="tablink" onclick="openPage('IPWordlist', this)">IPWordlist</button>
+		<button class="tablink" onclick="openPage('IPWordlist', this)">IP Wordlist</button>
 		
 		<div id="UserPass" class="tabcontent">
 			<h3>UserPass</h3>
@@ -37,6 +37,7 @@ published: true
 			</div>
 
 		<input type="text" id="textbox">
+		<br>
 		<table style="word-wrap:break-word; width:100%;" id="table" border="1"></table>
 
 		<script>
@@ -186,8 +187,8 @@ published: true
 				document.getElementById('textbox').value = "";
 				OnTextBoxChange();
 			}
+			
 			openPage('UserPass', this, 'red');
-
 			LoadJsonFiles();
 			document.getElementById("textbox").addEventListener('input', OnTextBoxChange);
 		</script>
