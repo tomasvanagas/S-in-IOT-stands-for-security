@@ -1,5 +1,5 @@
 title: IOT security blog
-description: "A Jekyll Blog Theme For Hackers"
+description: "Tomas Vanagas blog for malware enthusiasts."
 author:
   name: "Tomas"
   email: "tomas.vanagas@knf.vu.lt"
@@ -28,5 +28,5 @@ plugins:
   - jekyll-sitemap
 
 # Custom variables
-owner : "Tomas"
+owner : "Tomas Vanagas"
 year : "2019"
