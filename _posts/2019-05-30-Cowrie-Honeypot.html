@@ -47,25 +47,61 @@
 	
 				function OnTextBoxChange() {
 					var list;
-					if(OpenedTab == 0) {
-						list = PopUserpass;
-					}
-					else if(OpenedTab == 1) {
-						list = PopUsername;
-					}
-					else if(OpenedTab == 2) {
-						list = PopPassword;
-					}
-					else if(OpenedTab == 3) {
-						list = Commands;
-					}
-					else if(OpenedTab == 4) {
-						list = IpWordlist;
-					}
-	
 					while (table.firstChild) {
 						table.removeChild(table.firstChild);
 					}
+					if(true)
+					{
+						var tr = document.createElement('tr');
+						tr.setAttribute("style", "word-wrap:break-word; max-width:300px;");
+
+						var td1 = document.createElement('td');
+						td1.setAttribute("style", "word-wrap:break-word; max-width:300px; vertical-align:top; font-weight: bold;");
+
+						var td2 = document.createElement('td');
+						td2.setAttribute("style", "word-wrap:break-word; max-width:300px; white-space:pre-wrap; font-weight: bold;");
+
+						var text1 = document.createTextNode(k);
+						var text2 = document.createTextNode(result);
+
+						
+						if(OpenedTab == 0) {
+							list = PopUserpass;
+							text1 = document.createTextNode("Username:Password");
+							text2 = document.createTextNode("Count");
+						}
+						else if(OpenedTab == 1) {
+							list = PopUsername;
+							text1 = document.createTextNode("Username");
+							text2 = document.createTextNode("Count");
+						}
+						else if(OpenedTab == 2) {
+							list = PopPassword;
+							text1 = document.createTextNode("Password");
+							text2 = document.createTextNode("Count");
+						}
+						else if(OpenedTab == 3) {
+							list = Commands;
+							text1 = document.createTextNode("Command");
+							text2 = document.createTextNode("Count");
+						}
+						else if(OpenedTab == 4) {
+							list = IpWordlist;
+							text1 = document.createTextNode("IP Address");
+							text2 = document.createTextNode("Count: Username:Password");
+						}
+
+						td1.appendChild(text1);
+						td2.appendChild(text2);
+						
+						tr.appendChild(td1);
+						tr.appendChild(td2);
+
+						table.appendChild(tr);
+					}
+					
+	
+					
 					if(textbox.value != "") {
 						var maxResults = 50;
 						for(var k in list) {
