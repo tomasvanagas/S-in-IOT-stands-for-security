@@ -1,43 +1,42 @@
 <html style="min-height: 200%" border="2">
 	<body>
 		<img style="width: 50%; text-align: center; display: block;" src="https://raw.githubusercontent.com/tomasvanagas/S-in-IOT-stands-for-security/master/pictures/8851.jpg">
-		<br>
-		<p>Cowrie is a medium interaction SSH and Telnet honeypot designed to log brute force attacks and the shell interaction performed by the attacker.</p>
-		<br>
-		<button class="tablink" onclick="openPage('UserPass', this)">UserPass</button>
-		<button class="tablink" onclick="openPage('Usernames', this)">Usernames</button>
-		<button class="tablink" onclick="openPage('Passwords', this)">Passwords</button>
-		<button class="tablink" onclick="openPage('Commands', this)">Commands</button>
-		<button class="tablink" onclick="openPage('IPWordlist', this)">IP Wordlist</button>
-		
+		<p style="margin-bottom: 40px">
+			Cowrie is a medium interaction SSH and Telnet honeypot designed to log brute force attacks and the shell interaction performed by the attacker.
+		</p>
+		<div style="text-align: center;">
+			<h3>Choose what to search for:</h3>
+			<button class="tablink" onclick="openPage('UserPass', this)">UserPass</button>
+			<button class="tablink" onclick="openPage('Usernames', this)">Usernames</button>
+			<button class="tablink" onclick="openPage('Passwords', this)">Passwords</button>
+			<button class="tablink" onclick="openPage('Commands', this)">Commands</button>
+			<button class="tablink" onclick="openPage('IPWordlist', this)">IP Wordlist</button>
+		</div>
 		<div border="1">
-			<div id="UserPass" class="tabcontent">
-				<h3>UserPass</h3>
-				<p>Usernames and passwords used in botnets :</p>
-			</div>
-			
-			<div id="Usernames" class="tabcontent">
-				<h3>Usernames</h3>
-				<p>Usernames used in botnets :</p>
-			</div>
-			
-			<div id="Passwords" class="tabcontent">
-				<h3>Passwords</h3>
-				<p>Passwords used in botnets :</p> 
-			</div>
-			
-			<div id="Commands" class="tabcontent">
-				<h3>Commands</h3>
-				<p>Commands used in botnets :</p> 
-			</div>
-	
-			<div id="IPWordlist" class="tabcontent">
-					<h3>IP Wordlist</h3>
-					<p>Wordlist used by one bot :</p> 
+
+
+			<div style="text-align: center; margin-top: 30px;">
+				<div id="UserPass" class="tabcontent">
+					<label>Usernames and passwords used in botnets:</label>
 				</div>
-	
-			<input type="text" id="textbox">
-			<br>
+				<div id="Usernames" class="tabcontent">
+					<label>Usernames used in botnets :</label>
+				</div>
+				
+				<div id="Passwords" class="tabcontent">
+					<label>Passwords used in botnets:</label> 
+				</div>
+				
+				<div id="Commands" class="tabcontent">
+					<label>Commands used in botnets:</label> 
+				</div>
+		
+				<div id="IPWordlist" class="tabcontent">
+					<label>Wordlist used by one IP address:</label> 
+				</div>
+				<input type="text" id="textbox" align="middle" style="display: inline-block; width: 525px; margin-bottom: 20px;">
+			</div>	
+
 			<table style="word-wrap:break-word; width:100%;" id="table" border="1"></table>
 	
 			<script>
