@@ -1,5 +1,15 @@
-# S in IOT stands for security
+# S in IOT stands for security (Cowrie Honeypot)
 
-## License
+## Purpose
 
-CC0 1.0 Universal
+This is my malware analysis playground using Cowrie honeypot. I'm going to analyse and talk about tricks and techniques employed by malware writers. Trace CnC and other malicious servers.
+
+
+[Malware analysis blog tomasvanagas.ml](tomasvanagas.ml)
+
+
+
+
+## Credits
+
+Thanks [Ashish Chaudhary](https://github.com/tocttou) for this awesome blog template
