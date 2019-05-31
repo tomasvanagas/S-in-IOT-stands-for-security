@@ -3,7 +3,8 @@ title: SSH Most Popular Credentials
 published: true
 description: Most popular SSH credentials used by malware.
 ---
-The credentials you SHOULDN'T use at all:
+
+The credentials you **SHOULDN'T** use at all:
 
 # Most popular username and password pairs:
 ![](https://github.com/tomasvanagas/S-in-IOT-stands-for-security/blob/master/pictures/top_userpass.png?raw=true)
